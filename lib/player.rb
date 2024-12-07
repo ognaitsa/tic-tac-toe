@@ -6,22 +6,30 @@ class Player
   attr_accessor :name, :symbol
 
   # Player gets  initialized with name and symbol
-  def initialize # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+  def initialize
     # get name
+    player_name
+    # get symbol
+    player_symbol
+    # confirm player creation
+    puts "#{name} has joined the game with the '#{symbol}' symbol"
+  end
+
+  def player_name
     puts 'What is your name?'
     self.name = gets.chomp
     while name.to_s.empty? || name =~ /\A\s*\z/
       puts 'Please enter a valid name'
       self.name = gets.chomp
     end
-    # get symbol
+  end
+
+  def player_symbol
     puts 'What is your symbol?'
     self.symbol = gets.chomp
     while symbol.to_s.empty? || symbol =~ /\A\s*\z/
       puts 'Please enter a valid symbol'
       self.symbol = gets.chomp
     end
-    # confirm player creation
-    puts "#{name} has joined the game with the '#{symbol}' symbol"
   end
 end
