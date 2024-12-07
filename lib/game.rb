@@ -5,10 +5,17 @@ class Game
   def initialize
     # initialize array for moves
     puts 'Game starts!'
+    puts
+    @board = Array.new(3) { Array.new(3, '-') }
+    draw_board
   end
 
   def draw_board
     # display board
+    @board.each do |row|
+      puts row.join('  ')
+      puts
+    end
   end
 
   def check_winner

@@ -17,19 +17,19 @@ class Player
 
   def player_name
     puts 'What is your name?'
-    self.name = gets.chomp
+    self.name = gets.chomp.capitalize
     while name.to_s.empty? || name =~ /\A\s*\z/
       puts 'Please enter a valid name'
-      self.name = gets.chomp
+      self.name = gets.chomp.capitalize
     end
   end
 
   def player_symbol
     puts 'What is your symbol?'
-    self.symbol = gets.chomp
+    self.symbol = gets.chomp.capitalize
     while symbol.to_s.empty? || symbol =~ /\A\s*\z/
       puts 'Please enter a valid symbol'
-      self.symbol = gets.chomp
+      self.symbol = gets.chomp.capitalize
     end
   end
 end
