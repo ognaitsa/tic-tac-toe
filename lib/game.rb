@@ -8,6 +8,7 @@ class Game
     puts
     @board = Array.new(3) { Array.new(3, '-') }
     draw_board
+    move_check
   end
 
   def draw_board
@@ -18,11 +19,12 @@ class Game
     end
   end
 
-  def check_winner
-    # check if winning conditions are met
+  def move_check(player_turn)
+    # check who's turn it is or if the last move was valid
+    puts "#{player_turn} select your next move."
   end
 
-  def move_check
-    # check who's turn it is or if the last move was valid
+  def check_winner
+    # check if winning conditions are met
   end
 end

@@ -7,9 +7,8 @@ class Player
 
   # Player gets  initialized with name and symbol
   def initialize
-    # get name
+    # get name and get symbol
     player_name
-    # get symbol
     player_symbol
     # confirm player creation
     puts "#{name} has joined the game with the '#{symbol}' symbol"
