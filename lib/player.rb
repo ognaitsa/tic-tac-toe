@@ -31,4 +31,9 @@ class Player
       self.symbol = gets.chomp.capitalize
     end
   end
+
+  def make_move
+    # get coordinates from player
+    # display symbol on board
+  end
 end

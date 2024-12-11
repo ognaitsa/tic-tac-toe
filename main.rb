@@ -3,6 +3,6 @@
 require './lib/game'
 require './lib/player'
 
-P1 = Player.new
-P2 = Player.new
+Player1 = Player.new
+Player2 = Player.new
 Game.new
