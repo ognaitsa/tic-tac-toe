@@ -4,17 +4,17 @@ require './lib/game'
 
 # player class
 class Player
-  # attr accesor
+  attr_accessor :name, :symbol, :move
 
   # Player gets  initialized with name and symbol
   def initialize
     # get name and get symbol
     player_name
-    puts ' '
+    puts
     player_symbol
-    puts ' '
+    puts
     # confirm player creation
-    puts "#{@name} has joined the game with the '#{@symbol}' symbol"
+    puts "Player #{name} has joined the game with the '#{symbol}' symbol"
     puts ' '
   end
 
@@ -23,7 +23,7 @@ class Player
     @name = gets.chomp.capitalize!
     while @name.to_s.empty? || @name =~ /\A\s*\z/
       puts 'Please enter a valid name'
-      @name = gets.chomp.capitalize!
+      player_name
     end
   end
 
@@ -32,20 +32,24 @@ class Player
     @symbol = gets.chomp.capitalize!
     while @symbol.to_s.empty? || @symbol =~ /\A\s*\z/
       puts 'Please enter a valid symbol'
-      @symbol = gets.chomp.capitalize!
+      player_symbol
     end
   end
 
   def move_selection
-    puts 'Select a row and then a column.'
-    @row, @column = gets.chomp.to_i
-  end
-
-  def selection_check
-    while @row.zero? || @column.zero?
+    puts 'Select your move.'
+    @move = gets.chomp.to_i
+    @column = gets.chomp.to_i
+    while @row.nil?
       puts 'Select a valid number'
-      puts ''
       move_selection
     end
+  end
+
+  def location_check
+    # take player.move_selection and compare against board array
+    # while the spot is a '-' allow play to take place
+    # else puts 'Select another place'
+    # check_winner
   end
 end
