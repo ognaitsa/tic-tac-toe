@@ -1,26 +1,30 @@
 # frozen_string_literal: true
 
-require './lib/game'
+require './lib/board/'
+require './lib/cell/'
 
 # player class
 class Player
   attr_accessor :name, :symbol, :move
 
   # Player gets  initialized with name and symbol
-  def initialize
+  def initialize(name, symbol, move)
     # get name and get symbol
+    @name = name
+    @symbol = symbol
+    @move = move
     player_name
     puts
     player_symbol
     puts
     # confirm player creation
-    puts "Player #{name} has joined the game with the '#{symbol}' symbol"
+    puts "Player #{self.name} has joined the game with the '#{self.symbol}' symbol"
     puts ' '
   end
 
   def player_name
     puts 'What is your name?'
-    @name = gets.chomp.capitalize!
+    self.name = gets.chomp.capitalize!
     while @name.to_s.empty? || @name =~ /\A\s*\z/
       puts 'Please enter a valid name'
       player_name
@@ -29,27 +33,19 @@ class Player
 
   def player_symbol
     puts 'What is your symbol?'
-    @symbol = gets.chomp.capitalize!
+    self.symbol = gets.chomp.capitalize!
     while @symbol.to_s.empty? || @symbol =~ /\A\s*\z/
       puts 'Please enter a valid symbol'
       player_symbol
     end
   end
 
-  def move_selection
+  def player_move
     puts 'Select your move.'
-    @move = gets.chomp.to_i
-    @column = gets.chomp.to_i
-    while @row.nil?
+    self.move = gets.chomp.to_i
+    while move > 9 || move < 1
       puts 'Select a valid number'
-      move_selection
+      player_move
     end
-  end
-
-  def location_check
-    # take player.move_selection and compare against board array
-    # while the spot is a '-' allow play to take place
-    # else puts 'Select another place'
-    # check_winner
   end
 end
