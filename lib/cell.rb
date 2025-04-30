@@ -8,5 +8,7 @@ class Cell
   attr_accessor :name, :symbol, :board
 
   # create cells
-  def initialize; end
+  def initialize
+  
+  end
 end
